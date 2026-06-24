@@ -186,34 +186,73 @@
 // });
 
 // !! error handling
+// import express from "express";
+
+// const app = express();
+
+// app.get("/", (req, res) => {
+//   res.send("Home Page");
+// });
+
+// app.get("/login", (req, res) => {
+//   res.send("Login Page");
+// });
+
+// app.get("/error", (req, res, next) => {
+//   const error = new Error("Something went wrong");
+//   error.status = 404;
+//   next(error);
+// });
+
+// app.get("/product", (req, res) => {
+//   res.send("Product Page");
+// });
+
+// // * error handling middleware
+// function errorHandling(err, req, res, next) {
+//   res.status(err.status || 500).send("Try again later");
+// }
+
+// app.use(errorHandling);
+
+// app.listen(3200, () => {
+//   console.log("Server running on http://localhost:3200");
+// });
+
+// ! template engine
+// import express from "express";
+
+// const app = express();
+
+// app.set("view engine", "ejs");
+
+// app.get("/", (req, res) => {
+//   res.render("home", {
+//     name: "Bilal Hussain AI",
+//     company: "Software House",
+//   });
+// });
+
+// app.listen(3200, () => {
+//   console.log("Server running on http://localhost:3200");
+// });
+
+// !!
 import express from "express";
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("Home Page");
+app.set("view engine", "ejs");
+app.use(express.urlencoded({ extended: false }));
+
+app.get("/add-user", (req, res) => {
+  res.render("addUser");
 });
 
-app.get("/login", (req, res) => {
-  res.send("Login Page");
+app.post("/submit-user", (req, res) => {
+  console.log(req.body);
+  res.send({ message: "User Submitted", data: req.body });
 });
-
-app.get("/error", (req, res, next) => {
-  const error = new Error("Something went wrong");
-  error.status = 404;
-  next(error);
-});
-
-app.get("/product", (req, res) => {
-  res.send("Product Page");
-});
-
-// error handling middleware
-function errorHandling(err, req, res, next) {
-  res.status(err.status || 500).send("Try again later");
-}
-
-app.use(errorHandling);
 
 app.listen(3200, () => {
   console.log("Server running on http://localhost:3200");
