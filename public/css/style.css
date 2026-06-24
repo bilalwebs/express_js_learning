@@ -1,0 +1,39 @@
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f4f4f4;
+}
+
+/* NAVIGATION STYLE */
+nav {
+  background: #333;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 18px;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+nav a:hover {
+  background: red;
+}
+
+/* BUTTON STYLE */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: red;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background: darkred;
+}
