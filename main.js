@@ -238,6 +238,27 @@
 // });
 
 // !!
+// import express from "express";
+
+// const app = express();
+
+// app.set("view engine", "ejs");
+// app.use(express.urlencoded({ extended: false }));
+
+// app.get("/add-user", (req, res) => {
+//   res.render("addUser");
+// });
+
+// app.post("/submit-user", (req, res) => {
+//   console.log(req.body);
+//   res.send({ message: "User Submitted", data: req.body });
+// });
+
+// app.listen(3200, () => {
+//   console.log("Server running on http://localhost:3200");
+// });
+
+// !
 import express from "express";
 
 const app = express();
@@ -252,6 +273,12 @@ app.get("/add-user", (req, res) => {
 app.post("/submit-user", (req, res) => {
   console.log(req.body);
   res.send({ message: "User Submitted", data: req.body });
+});
+
+app.get("/user", (req, res) => {
+  res.render("user", {
+    user: ["Bilal", "Ali", "Ahmed", "Hamza"],
+  });
 });
 
 app.listen(3200, () => {
