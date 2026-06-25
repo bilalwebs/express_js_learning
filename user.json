@@ -1,0 +1,62 @@
+[
+    {
+        "name": "bilal",
+        "age": 20,
+        "email": "bilal@gmail.com",
+        "id": 1
+    },
+    {
+        "name": "ali",
+        "age": 22,
+        "email": "ali@gmail.com",
+        "id": 2
+    },
+    {
+        "name": "ahmed",
+        "age": 24,
+        "email": "ahmed@gmail.com",
+        "id": 3
+    },
+    {
+        "name": "hamza",
+        "age": 21,
+        "email": "hamza@gmail.com",
+        "id": 4
+    },
+    {
+        "name": "usman",
+        "age": 25,
+        "email": "usman@gmail.com",
+        "id": 5
+    },
+    {
+        "name": "zain",
+        "age": 23,
+        "email": "zain@gmail.com",
+        "id": 6
+    },
+    {
+        "name": "junaid",
+        "age": 26,
+        "email": "junaid@gmail.com",
+        "id": 7
+    },
+    {
+        "name": "hassan",
+        "age": 19,
+        "email": "hassan@gmail.com",
+        "id": 8
+    },
+    {
+        "name": "farhan",
+        "age": 27,
+        "email": "farhan@gmail.com",
+        "id": 9
+    },
+    {
+        "name": "saad",
+        "age": 28,
+        "email": "saad@gmail.com",
+        "id": 10
+    }
+]

@@ -298,28 +298,41 @@
 // });
 
 // ! Dynamic Routes with Example
-import express from "express";
+// import express from "express";
 
+// const app = express();
+// app.get("/", (req, res) => {
+//   const user = ["bilal", "akm", "nab"];
+
+//   let data = `<ul>`;
+
+//   for (let i = 0; i < user.length; i++) {
+//     data += `<li><a href="/user/${user[i]}">${user[i]}</a></li>`;
+//     console.log(user[i]);
+//   }
+
+//   data += `</ul>`;
+
+//   console.log(data); // 👈 Add this
+//   res.send(data);
+// });
+
+// app.get("/user/:name", (req, res) => {
+//   res.send("This is " + req.params.name + "'s profile");
+//   console.log(req.params);
+// });
+
+// app.listen(3200, () => {
+//   console.log("Server running on http://localhost:3200");
+// });
+
+// !! API Example with Dynamic Routes
+import express from "express";
+import userData from "./user.json" with { type: "json" };
 const app = express();
 app.get("/", (req, res) => {
-  const user = ["bilal", "akm", "nab"];
-
-  let data = `<ul>`;
-
-  for (let i = 0; i < user.length; i++) {
-    data += `<li><a href="/user/${user[i]}">${user[i]}</a></li>`;
-    console.log(user[i]);
-  }
-
-  data += `</ul>`;
-
-  console.log(data); // 👈 Add this
-  res.send(data);
-});
-
-app.get("/user/:name", (req, res) => {
-  res.send("This is " + req.params.name + "'s profile");
-  console.log(req.params);
+  console.log(userData);
+  res.send(userData);
 });
 
 app.listen(3200, () => {
