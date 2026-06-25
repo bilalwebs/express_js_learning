@@ -259,26 +259,67 @@
 // });
 
 // !
+// import express from "express";
+
+// const app = express();
+
+// app.set("view engine", "ejs");
+// app.use(express.urlencoded({ extended: false }));
+
+// app.get("/add-user", (req, res) => {
+//   res.render("addUser");
+// });
+
+// app.post("/submit-user", (req, res) => {
+//   console.log(req.body);
+//   res.send({ message: "User Submitted", data: req.body });
+// });
+
+// app.get("/user", (req, res) => {
+//   res.render("user", {
+//     user: ["Bilal", "Ali", "Ahmed", "Hamza"],
+//   });
+// });
+
+// app.listen(3200, () => {
+//   console.log("Server running on http://localhost:3200");
+// });
+
+// ! MVC Architecture Example with Node.js
+// import express from "express";
+// import { handleUser } from "./controller/userController.js";
+// const app = express();
+
+// app.set("view engine", "ejs");
+// app.get("/users", handleUser);
+
+// app.listen(3200, () => {
+//   console.log("Server running on http://localhost:3200");
+// });
+
+// ! Dynamic Routes with Example
 import express from "express";
 
 const app = express();
+app.get("/", (req, res) => {
+  const user = ["bilal", "akm", "nab"];
 
-app.set("view engine", "ejs");
-app.use(express.urlencoded({ extended: false }));
+  let data = `<ul>`;
 
-app.get("/add-user", (req, res) => {
-  res.render("addUser");
+  for (let i = 0; i < user.length; i++) {
+    data += `<li><a href="/user/${user[i]}">${user[i]}</a></li>`;
+    console.log(user[i]);
+  }
+
+  data += `</ul>`;
+
+  console.log(data); // 👈 Add this
+  res.send(data);
 });
 
-app.post("/submit-user", (req, res) => {
-  console.log(req.body);
-  res.send({ message: "User Submitted", data: req.body });
-});
-
-app.get("/user", (req, res) => {
-  res.render("user", {
-    user: ["Bilal", "Ali", "Ahmed", "Hamza"],
-  });
+app.get("/user/:name", (req, res) => {
+  res.send("This is " + req.params.name + "'s profile");
+  console.log(req.params);
 });
 
 app.listen(3200, () => {
