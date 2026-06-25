@@ -328,11 +328,81 @@
 
 // !! API Example with Dynamic Routes
 import express from "express";
-import userData from "./user.json" with { type: "json" };
+import userData, { user } from "./user.json" with { type: "json" };
 const app = express();
+
+app.use(express.json());
+
+// get all user
 app.get("/", (req, res) => {
-  console.log(userData);
   res.send(userData);
+});
+
+// get single id
+app.get("/user/:id", (req, resp) => {
+  const id = req.params.id;
+
+  const user = userData.find((u) => u.id == id);
+
+  if (!user) {
+    return resp.status(404).send("User Not Found");
+  }
+
+  resp.send(user);
+});
+
+app.get("/username/:name", (req, resp) => {
+  const name = req.params.name;
+
+  const user = userData.find((u) => u.name == name);
+
+  if (!user) {
+    return resp.status(404).send("User Not Found");
+  }
+
+  resp.send(user);
+});
+
+// post
+app.post("/user", (req, resp) => {
+  const newUser = req.body;
+
+  userData.push(newUser);
+
+  resp.status(201).send({
+    message: "User Added",
+    data: newUser,
+  });
+});
+
+// put
+app.put("/user/:id", (req, resp) => {
+  const usersData = userData.find((u) => u.id == req.params.id);
+
+  if (!usersData) {
+    return resp.status(404).send("User not found!!");
+  }
+  usersData.name = req.body.name;
+  usersData.age = req.body.age;
+  usersData.email = req.body.email;
+
+  resp.send({
+    message: "User update!",
+    data: usersData,
+  });
+});
+
+// delete
+app.delete("/user/:id", (req, resp) => {
+  const index = userData.findIndex((u) => (u.id = req.params.id));
+
+  if (index == -1) {
+    return resp.status(404).send("User Not found!!");
+  }
+
+  userData.splice(index, 1);
+
+  resp.send("User Delete");
 });
 
 app.listen(3200, () => {
