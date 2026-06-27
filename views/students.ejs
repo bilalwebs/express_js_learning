@@ -12,12 +12,20 @@
             <td>Name</td>
             <td>Age</td>
             <td>Email</td>
+            <td>Operation</td>
         </tr>
         <% students.forEach(std=>{%>
             <tr>
             <td><%=std.name%></td>
             <td><%=std.age%></td>
             <td><%=std.email%></td>
+            <td><%=std._id%></td>
+            <td>
+            <a href="/ui/delete/<%= std._id %>">Delete</a>
+            </td>
+            <td>
+            <a href="/ui/student/<%= std._id %>">Update</a>
+            </td>
         </tr>
 
        <% }) %>
